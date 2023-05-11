@@ -1,11 +1,11 @@
 def read_input():
-    method: str = input("Input method I - manual input, F - files: ")[0]
+    method: str = input()[0]
     match method:
         case "I":
-            pattern: str = input("Input pattern: ")
-            text: str = input("Input text: ")
+            pattern: str = input()
+            text: str = input()
         case "F":
-            filename: str = input("Input filename: ")
+            filename: str = input()
             file_path: str = "tests/"
             with open(file_path + filename, 'r') as file:
                 content: list = file.readlines()
