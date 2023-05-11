@@ -2,8 +2,8 @@ def read_input():
     method: str = input()[0]
     match method:
         case "I":
-            pattern: str = input()
-            text: str = input()
+            pattern: str = input().rstrip()
+            text: str = input().rstrip()
         case "F":
             with open("tests/06", 'r') as file:
                 content: list = file.readlines()
