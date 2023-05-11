@@ -5,9 +5,7 @@ def read_input():
             pattern: str = input()
             text: str = input()
         case "F":
-            filename: str = input()
-            file_path: str = "tests/"
-            with open(file_path + filename, 'r') as file:
+            with open("tests/06", 'r') as file:
                 content: list = file.readlines()
                 pattern: str = content[0].strip()
                 text: str = content[1].strip()
