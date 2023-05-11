@@ -7,8 +7,8 @@ def read_input():
         case "F":
             with open("tests/06", 'r') as file:
                 content: list = file.readlines()
-                pattern: str = content[0].strip()
-                text: str = content[1].strip()
+                pattern: str = content[0].rstrip()
+                text: str = content[1].rstrip()
 
     return (pattern, text)
     
