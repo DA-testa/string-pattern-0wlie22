@@ -53,7 +53,7 @@ def get_occurrences(pattern: str, text: str):
     for i in range(len(text) - len(pattern) + 1):
         tpattern = hash_function(text, i, cur_hash, len_pattern)
         cur_hash = tpattern
-        print(tpattern, hpattern)
+        # print(tpattern, hpattern)
         if cur_hash == hpattern:
         # if the hash values match, check character by character if the pattern matches the text
             occurrences.append(str(i))
