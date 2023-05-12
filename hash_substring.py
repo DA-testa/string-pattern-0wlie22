@@ -23,17 +23,22 @@ def hash_function(text: str, i: int, chash: int = 0, len_pattern: int = 0) -> in
     # create a hash function
     cur_hash = chash
     if i > 0 and i <= len(text) - len_pattern + 1:
-        cur_hash -= ord(text[i - 1]) * 263 
-        cur_hash += ord(text[i + len_pattern - 1]) * 263 
+        cur_hash -= ord(text[i - 1]) * 263
+        cur_hash += ord(text[i + len_pattern - 1]) * 263
+        # cur_hash += ord(text[i])
     elif (i == 0):
         cur_hash = 0
         for j in range(i + len_pattern):
             cur_hash += ord(text[j]) * 263 
+            if j == 0:
+                cur_hash += ord(text[0]) * 263
     elif (i == -1):
         len_pattern = len(text)
         cur_hash = 0
         for j in range(len_pattern):
-            cur_hash += ord(text[j]) * 263 
+            cur_hash += ord(text[j]) * 263
+            if j == 0:
+                cur_hash += ord(text[0]) * 263
     return cur_hash
 
 
@@ -48,10 +53,11 @@ def get_occurrences(pattern: str, text: str):
     for i in range(len(text) - len(pattern) + 1):
         tpattern = hash_function(text, i, cur_hash, len_pattern)
         cur_hash = tpattern
+        print(tpattern, hpattern)
         if cur_hash == hpattern:
         # if the hash values match, check character by character if the pattern matches the text
             occurrences.append(str(i))
-
+        
     return occurrences
 
 if __name__ == '__main__':
