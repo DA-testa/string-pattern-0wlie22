@@ -25,20 +25,21 @@ def hash_function(text: str, i: int, chash: int = 0, len_pattern: int = 0) -> in
     if i > 0 and i <= len(text) - len_pattern + 1:
         cur_hash -= ord(text[i - 1]) * 263
         cur_hash += ord(text[i + len_pattern - 1]) * 263
-        # cur_hash += ord(text[i])
+        cur_hash += ord(text[i])
+        cur_hash -= ord(text[i - 1])
     elif (i == 0):
         cur_hash = 0
         for j in range(i + len_pattern):
             cur_hash += ord(text[j]) * 263 
             if j == 0:
-                cur_hash += ord(text[0]) * 263
+                cur_hash += ord(text[0])
     elif (i == -1):
         len_pattern = len(text)
         cur_hash = 0
         for j in range(len_pattern):
             cur_hash += ord(text[j]) * 263
             if j == 0:
-                cur_hash += ord(text[0]) * 263
+                cur_hash += ord(text[0])
     return cur_hash
 
 
