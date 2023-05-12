@@ -23,17 +23,17 @@ def hash_function(text: str, i: int, chash: int = 0, len_pattern: int = 0) -> in
     # create a hash function
     cur_hash = chash
     if i > 0 and i <= len(text) - len_pattern + 1:
-        cur_hash -= ord(text[i - 1]) * 263 ** (len_pattern - 1)
-        cur_hash += ord(text[i + len_pattern - 1]) * 263 ** (len_pattern - 1)
+        cur_hash -= ord(text[i - 1]) * 263 
+        cur_hash += ord(text[i + len_pattern - 1]) * 263 
     elif (i == 0):
         cur_hash = 0
         for j in range(i + len_pattern):
-            cur_hash += ord(text[j]) * 263 ** j
+            cur_hash += ord(text[j]) * 263 
     elif (i == -1):
         len_pattern = len(text)
         cur_hash = 0
         for j in range(len_pattern):
-            cur_hash += ord(text[j]) * 263 ** j
+            cur_hash += ord(text[j]) * 263 
     return cur_hash
 
 
